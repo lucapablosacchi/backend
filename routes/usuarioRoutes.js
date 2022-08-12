@@ -30,6 +30,7 @@ usuariosRouter.post('/',async(req,res) => {
 });
 
 usuariosRouter.put('/:id',async(req,res) => {
+    console.log("hola")
     const id =req.params.id;
     const body=req.body;
     const usuarios= await UService.update(body);
