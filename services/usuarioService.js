@@ -43,19 +43,15 @@ class UsuarioService {
         }
     }
      
-    //insert = async (nombre, apellido, usuario, contrasenia, fechaNacimiento, mail, diabetesActual,contactoE,tipoD,rol,tipoS,obra,medico,peso) => {
-    insert = async (nombre, apellido) => {
+
+    insert = async (nombre, apellido, usuario, contrasenia, fechaNacimiento, mail, diabetesActual,contactoE,tipoD,rol,tipoS,obra,medico) => {
         console.log(contactoE)
         try {
             await pool.connect();
             const result = await pool
-            .query(`INSERT INTO paciente (nombre,apellido)
-                    VALUES ('${nombre}', '${apellido}' )`);
+            .query(`INSERT INTO paciente (nombre,apellido,usuario,contrasenia,"fechaNacimiento",mail,"diabetesActual","fkContactoEmergencia","fkTipoDiabetes","fkRol","fkTipoSangre","fkObraSocial","fkMedico")
+                    VALUES ('${nombre}', '${apellido}', '${usuario}', '${contrasenia}', '${fechaNacimiento}', '${mail}','${diabetesActual}',${contactoE},${tipoD},${rol},${tipoS}, ${obra}, ${medico})`);
                     return result.rowCount        
-                    /*.query(`INSERT INTO paciente (nombre,apellido,usuario,contrasenia,"fechaNacimiento",mail,"diabetesActual","fkContactoEmergencia","fkTipoDiabetes","fkRol","fkTipoSangre","fkObraSocial","fkMedico","peso",sangre)
-                    VALUES ('${nombre}', '${apellido}', '${usuario}', '${contrasenia}', '${fechaNacimiento}', '${mail}','${diabetesActual}',${contactoE},${tipoD},${rol},${tipoS}, ${obra}, ${medico}, ${peso},'${sangre}' )`);
-                    return result.rowCount        
-                    */
         }
         catch (err) {
             
