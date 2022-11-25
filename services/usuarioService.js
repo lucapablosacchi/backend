@@ -60,6 +60,22 @@ class UsuarioService {
         }
 }
 
+insertPocos = async (nombre,contrasenia,mail,peso,sangre) => {
+    console.log(contactoE)
+    try {
+        await pool.connect();
+        const result = await pool
+        .query(`INSERT INTO paciente (nombre,contrasenia,mail,"peso",sangre)
+                VALUES ('${nombre}','${contrasenia}','${mail}',${peso}, '${sangre}')`);
+                return result.rowCount        
+    }
+    catch (err) {
+        
+        console.log(err)
+        throw err 
+    }
+}
+
 
 
     // deleteById = async (id) => {
