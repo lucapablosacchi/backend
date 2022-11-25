@@ -34,7 +34,7 @@ router.post('/',async(req,res) => {
     console.log(req.body);
     const {nombre, contrasenia,mail,peso,sangre} = req.body
     
-    const usuarios = await UService.insertPocos(nombre,contrasenia,  mail,peso,sangre);
+    const usuarios = await UService.insertPocos(nombre,contrasenia,mail,peso,sangre);
     return res.status(200).json(usuarios);
 
     
