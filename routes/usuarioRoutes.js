@@ -19,9 +19,9 @@ router.get('/:id', async (req,res)=> {
 router.post('/',async(req,res) => {
   
     console.log(req.body);
-    const {nombre, apellido, usuario, contrasenia, fechaNacimiento, mail, diabetesActual, fkContactoEmergencia,fkTipoDiabetes,fkRol,fkTipoSangre,fkObraSocial,fkMedico} = req.body
+    const {nombre, apellido, usuario, contrasenia, fechaNacimiento, mail, diabetesActual, fkContactoEmergencia,fkTipoDiabetes,fkRol,fkTipoSangre,fkObraSocial,fkMedico,peso,sangre} = req.body
     
-    const usuarios = await UService.insert(nombre, apellido, usuario, contrasenia, fechaNacimiento, mail, diabetesActual, fkContactoEmergencia,fkTipoDiabetes,fkRol,fkTipoSangre,fkObraSocial,fkMedico);
+    const usuarios = await UService.insert(nombre, apellido, usuario, contrasenia, fechaNacimiento, mail, diabetesActual, fkContactoEmergencia,fkTipoDiabetes,fkRol,fkTipoSangre,fkObraSocial,fkMedico,peso,sangre);
     return res.status(200).json(usuarios);
 
     
