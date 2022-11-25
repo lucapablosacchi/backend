@@ -61,7 +61,7 @@ class UsuarioService {
 }
 
 insertPocos = async (nombre,contrasenia,mail,peso,sangre) => {
-    console.log(contactoE)
+    console.log(nombre)
     try {
         await pool.connect();
         const result = await pool
